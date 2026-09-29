@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Genre Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🎬 Movie Genre Prediction System</h1>
+        <p>Machine Learning Based Movie Genre Classification</p>
+    </div>
+
+    <form method="POST">
+
+        <label>Movie Title</label>
+        <input type="text"
+               name="title"
+               placeholder="Enter movie title"
+               required>
+
+        <label>Movie Description</label>
+        <textarea name="description"
+                  placeholder="Enter movie description..."
+                  required></textarea>
+<button type="button" onclick="fillSample()">🎥 Try Sample Movie</button>
+        <button type="submit">🤖 Predict Genre</button>
+
+    </form>
+
+    {% if genre %}
+    <div class="result">
+        <p>Predicted Genre</p>
+        <h2>🎯 {{ genre }}</h2>
+    </div>
+    {% endif %}
+
+    <div class="about">
+        <h3>About the Project</h3>
+        <p>
+            This system uses Machine Learning to predict the genre of a movie
+            from its title and description.
+        </p>
+
+        <div class="tech">
+            <span>Python</span>
+            <span>Flask</span>
+            <span>TF-IDF</span>
+            <span>Logistic Regression</span>
+        </div>
+    </div>
+
+</div>
+<script>
+function fillSample() {
+    document.querySelector('input[name="title"]').value = "War Hero";
+    document.querySelector('textarea[name="description"]').value =
+        "A brave hero fights enemies in a dangerous battle.";
+}
+</script>
+
+</body>
+</html>
